@@ -1,4 +1,4 @@
-package com.example.demo.utils;
+package com.umc.daangn.utils;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;

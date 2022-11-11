@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.umc.daangn.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

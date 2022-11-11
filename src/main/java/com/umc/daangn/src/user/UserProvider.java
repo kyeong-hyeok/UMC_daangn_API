@@ -1,16 +1,16 @@
-package com.example.demo.src.user;
+package com.umc.daangn.src.user;
 
-import com.example.demo.config.BaseException;
-import com.example.demo.config.secret.Secret;
-import com.example.demo.src.user.model.*;
-import com.example.demo.utils.AES128;
-import com.example.demo.utils.JwtService;
+import com.umc.daangn.config.BaseException;
+import com.umc.daangn.config.secret.Secret;
+import com.umc.daangn.src.user.model.*;
+import com.umc.daangn.utils.AES128;
+import com.umc.daangn.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import static com.example.demo.config.BaseResponseStatus.*;
+import static com.umc.daangn.config.BaseResponseStatus.*;
 
 //Provider : Read의 비즈니스 로직 처리
 @Service    // [Business Layer에서 Service를 명시하기 위해서 사용] 비즈니스 로직이나 respository layer 호출하는 함수에 사용된다.

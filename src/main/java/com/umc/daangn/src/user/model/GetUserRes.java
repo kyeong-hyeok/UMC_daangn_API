@@ -1,4 +1,4 @@
-package com.example.demo.src.user.model;
+package com.umc.daangn.src.user.model;
 
 
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.umc.daangn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,11 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // 사전의 정의한 라이브러리들을 Bean 등록
 
 // Bean 간단 설명, 스프링 컨테이너가 관리하는 자바 객체
-public class DemoApplication {
+public class DaangnApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(DaangnApplication.class, args);
 
         // 메모리 사용량 출력
         long heapSize = Runtime.getRuntime().totalMemory();

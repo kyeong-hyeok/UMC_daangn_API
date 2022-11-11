@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.umc.daangn.config;
 
 // 프로젝트에서 공통적으로 사용하는 상수들
 public class Constant {

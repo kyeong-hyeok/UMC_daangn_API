@@ -1,19 +1,19 @@
-package com.example.demo.src.user;
+package com.umc.daangn.src.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.example.demo.config.BaseException;
-import com.example.demo.config.BaseResponse;
-import com.example.demo.src.user.model.*;
-import com.example.demo.utils.JwtService;
+import com.umc.daangn.config.BaseException;
+import com.umc.daangn.config.BaseResponse;
+import com.umc.daangn.src.user.model.*;
+import com.umc.daangn.utils.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-import static com.example.demo.config.BaseResponseStatus.*;
-import static com.example.demo.utils.ValidationRegex.isRegexEmail;
+import static com.umc.daangn.config.BaseResponseStatus.*;
+import static com.umc.daangn.utils.ValidationRegex.isRegexEmail;
 
 @RestController // Rest API 또는 WebAPI를 개발하기 위한 어노테이션. @Controller + @ResponseBody 를 합친것.
                 // @Controller      [Presentation Layer에서 Contoller를 명시하기 위해 사용]
