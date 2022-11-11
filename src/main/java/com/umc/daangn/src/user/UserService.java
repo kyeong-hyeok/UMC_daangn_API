@@ -64,6 +64,7 @@ public class UserService {
 //            return new PostUserRes(jwt,userIdx);
 //  *********************************************************************
         } catch (Exception exception) { // DB에 이상이 있는 경우 에러 메시지를 보냅니다.
+            logger.error("Error!", exception);
             throw new BaseException(DATABASE_ERROR);
         }
     }
