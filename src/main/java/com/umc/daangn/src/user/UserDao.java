@@ -38,7 +38,7 @@ public class UserDao {
      *      Notice!
      *      POST, PATCH의 경우 jdbcTemplate.update
      *      GET은 대상이 하나일 경우 jdbcTemplate.queryForObject, 대상이 복수일 경우, jdbcTemplate.query 함수를 사용합니다.
-     * jdbcTeplate이 실행시킬 때 Query 부분과 Params 부분은 대응(값을 주입)시켜서 DB에 요청합니다.
+     * jdbcTemplate이 실행시킬 때 Query 부분과 Params 부분은 대응(값을 주입)시켜서 DB에 요청합니다.
      * <p>
      * 정리하자면 < 동적 쿼리문 설정(Query) -> 주입될 값 설정(Params) -> jdbcTemplate함수(Query, Params)를 통해 Query, Params를 대응시켜 DB에 요청 > 입니다.
      * <p>
@@ -56,7 +56,7 @@ public class UserDao {
 
     // 회원가입
     public int createUser(PostUserReq postUserReq) {
-        String createUserQuery = "insert into User (email, password, nickname) VALUES (?,?,?)"; // 실행될 동적 쿼리문
+        String createUserQuery = "insert into user (email, password, nickname) VALUES (?,?,?)"; // 실행될 동적 쿼리문
         Object[] createUserParams = new Object[]{postUserReq.getEmail(), postUserReq.getPassword(), postUserReq.getNickname()}; // 동적 쿼리의 ?부분에 주입될 값
         this.jdbcTemplate.update(createUserQuery, createUserParams);
         // email -> postUserReq.getEmail(), password -> postUserReq.getPassword(), nickname -> postUserReq.getNickname() 로 매핑(대응)시킨다음 쿼리문을 실행한다.
