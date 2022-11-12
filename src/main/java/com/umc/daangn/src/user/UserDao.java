@@ -100,6 +100,13 @@ public class UserDao {
         ); // 한 개의 회원정보를 얻기 위한 jdbcTemplate 함수(Query, 객체 매핑 정보, Params)의 결과 반환
     }
 
+    //status
+//    public User getStatus(PostLoginReq postLoginReq) {
+//        String getStatusQuery = "select status from user where email = ?";
+//        String getStatusParams = postLoginReq.getEmail();
+//        return this.jdbcTemplate.queryForObject(getStatusQuery)
+//    }
+
     // User 테이블에 존재하는 전체 유저들의 정보 조회
     public List<GetUserRes> getUsers() {
         String getUsersQuery = "select * from user"; //User 테이블에 존재하는 모든 회원들의 정보를 조회하는 쿼리

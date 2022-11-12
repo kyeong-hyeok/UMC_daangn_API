@@ -63,6 +63,11 @@ public class UserProvider {
         }
     }
 
+//    //status
+//    public PostLoginRes logInStatus(PostLoginReq postLoginReq) throws BaseException {
+//        User user =
+//    }
+
     // 해당 이메일이 이미 User Table에 존재하는지 확인
     public int checkEmail(String email) throws BaseException {
         try {
