@@ -1,5 +1,6 @@
 package com.umc.daangn.src.post;
 
+import com.umc.daangn.src.post.model.GetPostRes;
 import com.umc.daangn.src.post.model.PostPostReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,5 +22,16 @@ public class PostDao {
         this.jdbcTemplate.update(createPostQuery,createPostParams);
         String lastInserIdQuery = "select last_insert_id()";
         return this.jdbcTemplate.queryForObject(lastInserIdQuery, int.class);
+    }
+
+    public GetPostRes getPost(int postIdx) {
+        String getPostQuery = "select * from post where postIdx = ?";
+        int getPostParmas = postIdx;
+        return this.jdbcTemplate.queryForObject(getPostQuery,
+                (rs,rowNum) -> new GetPostRes(
+                        rs.getInt("postIdx"),
+                        rs.getString("content"),
+                        rs.getInt("userIdx")),
+                getPostParmas);
     }
 }

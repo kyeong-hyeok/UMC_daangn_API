@@ -2,10 +2,12 @@ package com.umc.daangn.src.post;
 
 import com.umc.daangn.config.BaseException;
 import com.umc.daangn.config.BaseResponse;
+import com.umc.daangn.src.post.model.GetPostRes;
 import com.umc.daangn.src.post.model.PostPostReq;
 import com.umc.daangn.src.post.model.PostPostRes;
 import com.umc.daangn.src.user.UserProvider;
 import com.umc.daangn.src.user.UserService;
+import com.umc.daangn.src.user.model.GetUserRes;
 import com.umc.daangn.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,4 +47,14 @@ public class PostController {
         }
     }
 
+    @ResponseBody
+    @GetMapping("/{postIdx}")
+    public BaseResponse<GetPostRes> GetPost(@PathVariable("postIdx") int postIdx) {
+        try {
+            GetPostRes getPostRes = postProvider.getPost(postIdx);
+            return new BaseResponse<>(getPostRes);
+        } catch (BaseException exception) {
+            return new BaseResponse<>((exception.getStatus()));
+        }
+    }
 }
