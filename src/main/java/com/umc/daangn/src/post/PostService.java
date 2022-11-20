@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sound.midi.Patch;
 
@@ -33,6 +34,7 @@ public class PostService {
         this.jwtService = jwtService; // JWT부분은 7주차에 다루므로 모르셔도 됩니다!
     }
 
+    @Transactional
     public PostPostRes createPost(PostPostReq postPostReq) throws BaseException {
         try {
             int postIdx = postDao.createPost(postPostReq);
@@ -43,6 +45,7 @@ public class PostService {
         }
     }
 
+    @Transactional
     public void modifyPost(PatchPostReq patchPostReq) throws BaseException {
         try {
             int result = postDao.modifyPost(patchPostReq);
@@ -54,6 +57,7 @@ public class PostService {
         }
     }
 
+    @Transactional
     public void deletePost(int postIdx) throws BaseException {
         try {
             int result = postDao.deletePost(postIdx);
