@@ -34,7 +34,6 @@ public enum BaseResponseStatus {
     POST_POSTS_EMPTY_CONTENT(false, 2021, "내용을 입력해 주세요"),
 
 
-
     /**
      * 3000 : Response 오류
      */
@@ -55,6 +54,11 @@ public enum BaseResponseStatus {
 
     //[PATCH] /users/{userIdx}
     MODIFY_FAIL_USERNAME(false,4014,"유저네임 수정 실패"),
+
+    //[PATCH] /posts/{postIdx}
+    MODIFY_FAIL_POSTCONTENT(false,4015,"게시물 내용 수정 실패"),
+    //[Delete] /posts/{postIdx}
+    DELETE_FAIL_POST(false,4015,"게시물 삭제 실패"),
 
     PASSWORD_ENCRYPTION_ERROR(false, 4011, "비밀번호 암호화에 실패하였습니다."),
     PASSWORD_DECRYPTION_ERROR(false, 4012, "비밀번호 복호화에 실패하였습니다.");

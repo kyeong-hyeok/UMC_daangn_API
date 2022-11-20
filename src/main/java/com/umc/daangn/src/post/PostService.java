@@ -1,6 +1,7 @@
 package com.umc.daangn.src.post;
 
 import com.umc.daangn.config.BaseException;
+import com.umc.daangn.src.post.model.PatchPostReq;
 import com.umc.daangn.src.post.model.PostPostReq;
 import com.umc.daangn.src.post.model.PostPostRes;
 import com.umc.daangn.src.user.UserDao;
@@ -10,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.sound.midi.Patch;
 
 import static com.umc.daangn.config.BaseResponseStatus.*;
 
@@ -37,6 +40,28 @@ public class PostService {
         } catch (Exception exception) { // DB에 이상이 있는 경우 에러 메시지를 보냅니다.
         logger.error("Error!", exception);
         throw new BaseException(DATABASE_ERROR);
+        }
+    }
+
+    public void modifyPost(PatchPostReq patchPostReq) throws BaseException {
+        try {
+            int result = postDao.modifyPost(patchPostReq);
+            if(result==0) {
+                throw new BaseException(MODIFY_FAIL_POSTCONTENT);
+            }
+        } catch (Exception exception) {
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
+
+    public void deletePost(int postIdx) throws BaseException {
+        try {
+            int result = postDao.deletePost(postIdx);
+            if(result==0) {
+                throw new BaseException(DELETE_FAIL_POST);
+            }
+        } catch (Exception exception) {
+            throw new BaseException(DATABASE_ERROR);
         }
     }
 }

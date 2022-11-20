@@ -1,6 +1,7 @@
 package com.umc.daangn.src.post;
 
 import com.umc.daangn.src.post.model.GetPostRes;
+import com.umc.daangn.src.post.model.PatchPostReq;
 import com.umc.daangn.src.post.model.PostPostReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -33,5 +34,17 @@ public class PostDao {
                         rs.getString("content"),
                         rs.getInt("userIdx")),
                 getPostParmas);
+    }
+
+    public int modifyPost(PatchPostReq patchPostReq) {
+        String modifyPostQuery = "update post set content = ? where postIdx = ? ";
+        Object[] modifyPostParams = new Object[]{patchPostReq.getContent(), patchPostReq.getPostIdx()};
+        return this.jdbcTemplate.update(modifyPostQuery,modifyPostParams);
+    }
+
+    public int deletePost(int postIdx) {
+        String deletePostQuery = "delete from post where postIdx = ?";
+        Object[] deletePostParams = new Object[]{postIdx};
+        return this.jdbcTemplate.update(deletePostQuery,deletePostParams);
     }
 }

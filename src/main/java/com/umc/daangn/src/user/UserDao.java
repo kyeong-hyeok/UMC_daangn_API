@@ -121,7 +121,7 @@ public class UserDao {
 
     // 해당 nickname을 갖는 유저들의 정보 조회
     public List<GetUserRes> getUsersByNickname(String nickname) {
-        String getUsersByNicknameQuery = "select * from user where nickname =?"; // 해당 이메일을 만족하는 유저를 조회하는 쿼리문
+        String getUsersByNicknameQuery = "select * from user where nickname =?"; // 해당 닉네임을 만족하는 유저를 조회하는 쿼리문
         String getUsersByNicknameParams = nickname;
         return this.jdbcTemplate.query(getUsersByNicknameQuery,
                 (rs, rowNum) -> new GetUserRes(

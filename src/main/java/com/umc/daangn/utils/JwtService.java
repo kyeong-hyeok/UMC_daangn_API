@@ -59,7 +59,7 @@ public class JwtService {
         // 2. JWT parsing
         Jws<Claims> claims;
         try{
-            claims = Jwts.parser()
+            claims = Jwts.parser()  // 유효한 토근인지
                     .setSigningKey(Secret.JWT_SECRET_KEY)
                     .parseClaimsJws(accessToken);
         } catch (Exception ignored) {
